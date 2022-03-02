@@ -71,9 +71,6 @@ print("")
 # Therefore, we will use them all in the model.
 # However, the day and month columns are not very useful, we will remove both columns.
 
-data_frame = data_frame.select(*data_frame.columns)
-cols = data_frame.columns
-
 data_frame.printSchema()
 
 print("\nColumns", data_frame.columns)
