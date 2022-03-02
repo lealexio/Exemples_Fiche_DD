@@ -126,7 +126,7 @@ rfModel = rf.fit(train)
 predictions_rf = rfModel.transform(test)
 
 print("Random-Forest Classifier Dataset :")
-print(predictions_rf.select('age', 'job', 'label', 'rawPrediction', 'prediction', 'probability').toPandas())
+print(predictions_rf.select('age', 'job', 'label', 'rawPrediction', 'rawPrediction', 'prediction', 'probability').toPandas())
 
 rf_prd = evaluator.evaluate(predictions_rf, {evaluator.metricName: "areaUnderROC"})
 print("Random-Forest Classifier score :", rf_prd)
@@ -137,7 +137,7 @@ rfModel = rf.fit(train)
 predictions_rf = rfModel.transform(test)
 
 print("DecisionTree Classifier Dataset :")
-print(predictions_rf.select('age', 'job', 'label', 'rawPrediction', 'prediction', 'probability').toPandas())
+print(predictions_rf.select('age', 'job', 'label', 'rawPrediction', 'rawPrediction', 'prediction', 'probability').toPandas())
 
 rf_prd = evaluator.evaluate(predictions_rf, {evaluator.metricName: "areaUnderROC"})
 print("DecisionTree Classifier score :", rf_prd)
@@ -149,7 +149,7 @@ gbt = GBTClassifier(maxIter=100, featuresCol='features', labelCol='label')
 gbt_model = gbt.fit(train)
 gbt_predictions = gbt_model.transform(test)
 print("Gradient-Boosted Tree Classifier Dataset :")
-print(gbt_predictions.select('age', 'job', 'label', 'rawPrediction', 'prediction', 'probability').toPandas())
+print(gbt_predictions.select('age', 'job', 'label', 'rawPrediction', 'rawPrediction', 'prediction', 'probability').toPandas())
 
 print("Gradient-Boosted Tree Classifier Score: ", evaluator.evaluate(gbt_predictions, {evaluator.metricName: "areaUnderROC"}))
 
